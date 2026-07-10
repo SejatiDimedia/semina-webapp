@@ -146,14 +146,14 @@ export default function EventsForm({
             type="file"
             onChange={handleChange}
           />
-          {form.avatar !== "" && (
+          {form.avatar && (
             <div>
               <Figure>
                 <Figure.Image
                   width={171}
                   height={180}
                   alt="171x180"
-                  src={`${config.api_image}/${form.avatar}`}
+                  src={form.avatar.startsWith("http") ? form.avatar : `${config.api_image}/${form.avatar}`}
                 />
 
                 <Figure.Caption>Perview image cover</Figure.Caption>

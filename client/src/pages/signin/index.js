@@ -52,26 +52,29 @@ function SignIn() {
   };
 
   return (
-    <Container md={12} className="my-5">
-      <div className="m-auto" style={{ width: "50%" }}>
-        {alert.status && <SAlert message={alert.message} type={alert.type} />}
-      </div>
-      <Card style={{ width: "50%" }} className="m-auto mt-5">
-        <Card.Header className="bg-primary">
-          <Card.Title className="text-center text-white">
-            <h4>Form SignIn</h4>
-          </Card.Title>
-        </Card.Header>
-        <Card.Body>
-          <SForm
-            form={form}
-            handleChange={handleChange}
-            isLoading={isLoading}
-            handleSubmit={handleSubmit}
-          />
-        </Card.Body>
-      </Card>
-    </Container>
+    <div className="bg-signin">
+      <Container style={{ maxWidth: "460px" }}>
+        {alert.status && (
+          <div className="mb-4">
+            <SAlert message={alert.message} type={alert.type} />
+          </div>
+        )}
+        <Card className="signin-card shadow">
+          <Card.Header className="signin-header text-center">
+            <h2 className="fw-bold mb-1" style={{ color: "#1e1b4b" }}>Welcome Back</h2>
+            <p className="text-muted small">Enter your credentials to access the admin dashboard</p>
+          </Card.Header>
+          <Card.Body className="signin-body">
+            <SForm
+              form={form}
+              handleChange={handleChange}
+              isLoading={isLoading}
+              handleSubmit={handleSubmit}
+            />
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
   );
 }
 

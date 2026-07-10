@@ -1,0 +1,68 @@
+.newsletter {
+  .newsletter-box {
+    background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+    border: none;
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25);
+    
+    h2 {
+      font-size: 32px;
+      letter-spacing: -0.5px;
+    }
+    
+    p {
+      font-size: 16px;
+    }
+  }
+  
+  .form-control {
+    background: rgba($white, 0.2);
+    color: $white;
+    border: 1px solid rgba($white, 0.1) !important;
+    
+    &::placeholder {
+      color: rgba($white, 0.7);
+    }
+    
+    &:focus {
+      background: rgba($white, 0.3);
+      border-color: rgba($white, 0.5) !important;
+      box-shadow: none;
+      color: $white;
+    }
+  }
+
+  .btn-green {
+    background-color: $white !important;
+    color: #4f46e5 !important;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    
+    &:hover {
+      background-color: #f8fafc !important;
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .circle-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba($white, 0.15);
+    z-index: 1;
+    filter: blur(50px);
+  }
+  
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -120px;
+    left: -120px;
+  }
+  
+  .shape-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -100px;
+    right: -100px;
+  }
+}

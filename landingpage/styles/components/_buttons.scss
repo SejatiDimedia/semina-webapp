@@ -1,0 +1,47 @@
+.main-btn {
+  padding: 13px 35px;
+  border-radius: 45px;
+  font-size: 16px;
+  border: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: ease-out 0.3s;
+  outline: none;
+}
+
+.btn-navy {
+  @extend .main-btn;
+  background-color: $soft_navy;
+  font-weight: map-get($map: $font-weight, $key: medium);
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+
+  &:focus {
+    outline: 2.5px solid rgba(196, 196, 196, 0.75);
+  }
+}
+
+.btn-green {
+  @extend .main-btn;
+  color: $white; // Also make the text white on cyan background for readability! Wait, is cyan light or dark? 
+  // Let's check: cyan #06b6d4 is bright but dark text is usually preferred, but on a violet dark theme, white text looks cleaner or dark text is fine. Let's make it color: #1e1b4b ($navy) which is high contrast. Wait, $navy is color: $navy. Yes, $navy is #1e1b4b, which is dark. Let's keep color: $navy.
+  color: $navy;
+  font-weight: map-get($map: $font-weight, $key: semi-bold);
+  background-color: $green;
+  box-shadow: 0px 4px 15px rgba(6, 182, 212, 0.35);
+
+  &:hover {
+    color: $navy;
+    background-color: lighten($green, 10%);
+    box-shadow: 0px 6px 20px rgba(6, 182, 212, 0.5);
+  }
+}
+
+@media (max-width: 992px) {
+  .btn-navy {
+    max-width: 100%;
+  }
+}

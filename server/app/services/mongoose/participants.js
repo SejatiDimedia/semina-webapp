@@ -43,7 +43,6 @@ const signupParticipant = async (req) => {
   await otpMail(email, result);
 
   delete result._doc.password;
-  delete result._doc.otp;
 
   return result;
 };
@@ -96,7 +95,13 @@ const signinParticipant = async (req) => {
 
   const token = createJWT({ payload: createTokenParticipant(result) });
 
-  return token;
+  return {
+    token,
+    role: result.role,
+    email: result.email,
+    firstName: result.firstName,
+    lastName: result.lastName,
+  };
 };
 
 const getAllEvents = async (req) => {
@@ -181,7 +186,7 @@ const checkoutOrder = async (req) => {
 
   const result = new Orders({
     date: new Date(),
-    personalDetail: personalDetail,
+    personalDetail: Array.isArray(personalDetail) ? personalDetail[0] : personalDetail,
     totalPay,
     totalOrderTicket,
     orderItems: tickets,

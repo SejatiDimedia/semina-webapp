@@ -24,15 +24,19 @@ export default function SForm({ form, handleChange, handleSubmit, isLoading }) {
         onChange={handleChange}
       />
 
-      <SBUtton
-        loading={isLoading}
-        disabled={isLoading}
-        variant="primary"
-        type="submit"
-        action={handleSubmit}
-      >
-        Submit
-      </SBUtton>
+      <div className="d-grid mt-4">
+        <SBUtton
+          loading={isLoading}
+          disabled={isLoading}
+          variant="info"
+          type="submit"
+          action={handleSubmit}
+          className="py-2.5 rounded-pill fw-bold text-white"
+          style={{ background: "linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%)", border: "none" }}
+        >
+          Sign In
+        </SBUtton>
+      </div>
     </Form>
   );
 }

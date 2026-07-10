@@ -6,7 +6,7 @@ import Login from "../pages/signin";
 import { HomeRoute } from "./HomeRoute";
 import { TalentsRoute } from "./TalentsRoute";
 import { CategoriesRoute } from "./CategoriesRoute";
-import SNavbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 import { PaymentsRoute } from "./PaymentsRoute";
 import { EventsRoute } from "./EventsRoute";
 import { OrdersRoute } from "./OrdersRoute";
@@ -26,10 +26,12 @@ export function AppRoutes() {
       <Route
         path="/"
         element={
-          <>
-            <SNavbar />
-            <GuardRoute />
-          </>
+          <div className="d-flex" style={{ minHeight: "100vh" }}>
+            <Sidebar />
+            <div className="flex-grow-1 cms-content">
+              <GuardRoute />
+            </div>
+          </div>
         }
       >
         <Route path="dashboard/*" element={<HomeRoute />} />

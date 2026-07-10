@@ -55,7 +55,7 @@ function EventsCreate() {
       title: res.data.data.title,
       date: moment(res.data.data.date).format("YYYY-MM-DDTHH:SS"),
       file: res.data.data.image._id,
-      avatar: res.data.data.image.name,
+      avatar: res.data.data.image.url,
       about: res.data.data.about,
       venueName: res.data.data.venueName,
       tagline: res.data.data.tagline,
@@ -118,7 +118,7 @@ function EventsCreate() {
           setForm({
             ...form,
             file: res.data.data._id,
-            [e.target.name]: res.data.data.name,
+            [e.target.name]: res.data.data.url,
           });
         }
       } else {

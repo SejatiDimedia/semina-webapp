@@ -38,7 +38,6 @@ const participantSchema = new mongoose.Schema(
     image: {
       type: mongoose.Types.ObjectId,
       ref: "Image",
-      required: true,
     },
   },
   { timestamps: true }

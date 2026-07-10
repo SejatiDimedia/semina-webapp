@@ -86,7 +86,7 @@ function EventsCreate() {
           setForm({
             ...form,
             file: res.data.data._id,
-            [e.target.name]: res.data.data.name,
+            [e.target.name]: res.data.data.url,
           });
         }
       } else {

@@ -31,7 +31,7 @@ const getAllEvents = async (req) => {
   }
 
   const result = await Events.find(condition)
-    .populate({ path: "image", select: "_id name" })
+    .populate({ path: "image", select: "_id name url" })
     .populate({
       path: "category",
       select: "_id name",
@@ -39,7 +39,7 @@ const getAllEvents = async (req) => {
     .populate({
       path: "talent",
       select: "_id name role image",
-      populate: { path: "image", select: "_id  name" },
+      populate: { path: "image", select: "_id name url" },
     });
 
   return result;
@@ -95,7 +95,7 @@ const getOneEvents = async (req) => {
     _id: id,
     organizer: req.user.organizer,
   })
-    .populate({ path: "image", select: "_id name" })
+    .populate({ path: "image", select: "_id name url" })
     .populate({
       path: "category",
       select: "_id name",
@@ -103,7 +103,7 @@ const getOneEvents = async (req) => {
     .populate({
       path: "talent",
       select: "_id name role image",
-      populate: { path: "image", select: "_id  name" },
+      populate: { path: "image", select: "_id name url" },
     });
 
   if (!result) throw new NotFoundError(`Tidak ada event dengan id :  ${id}`);
